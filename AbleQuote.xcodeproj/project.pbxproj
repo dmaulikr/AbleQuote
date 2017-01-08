@@ -12,6 +12,7 @@
 		3E2EA4301E1EFA2B0023C3F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E2EA42E1E1EFA2B0023C3F4 /* Main.storyboard */; };
 		3E2EA4321E1EFA2B0023C3F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E2EA4311E1EFA2B0023C3F4 /* Assets.xcassets */; };
 		3E2EA4351E1EFA2B0023C3F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E2EA4331E1EFA2B0023C3F4 /* LaunchScreen.storyboard */; };
+		3EEC39021E227E1000CF741C /* CompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEC39011E227E1000CF741C /* CompanyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		3E2EA4311E1EFA2B0023C3F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E2EA4341E1EFA2B0023C3F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E2EA4361E1EFA2B0023C3F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3EEC39011E227E1000CF741C /* CompanyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				3E2EA42A1E1EFA2B0023C3F4 /* AppDelegate.swift */,
 				3E2EA42C1E1EFA2B0023C3F4 /* ViewController.swift */,
 				3E2EA42E1E1EFA2B0023C3F4 /* Main.storyboard */,
+				3EEC39011E227E1000CF741C /* CompanyViewController.swift */,
 				3E2EA4311E1EFA2B0023C3F4 /* Assets.xcassets */,
 				3E2EA4331E1EFA2B0023C3F4 /* LaunchScreen.storyboard */,
 				3E2EA4361E1EFA2B0023C3F4 /* Info.plist */,
@@ -139,6 +142,7 @@
 			files = (
 				3E2EA42D1E1EFA2B0023C3F4 /* ViewController.swift in Sources */,
 				3E2EA42B1E1EFA2B0023C3F4 /* AppDelegate.swift in Sources */,
+				3EEC39021E227E1000CF741C /* CompanyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +306,7 @@
 				3E2EA43B1E1EFA2B0023C3F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
