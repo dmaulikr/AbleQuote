@@ -10,8 +10,14 @@ import UIKit
 
 class PartsViewController: UIViewController {
 
+    @IBAction func DoneParts(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
 
         // Do any additional setup after loading the view.
     }
@@ -22,11 +28,6 @@ class PartsViewController: UIViewController {
     }
     
 
-    @IBAction func Done(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-
-    }
-    
     /*
     // MARK: - Navigation
 
@@ -37,4 +38,16 @@ class PartsViewController: UIViewController {
     }
     */
 
+}
+
+
+extension PartsViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PartsViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }

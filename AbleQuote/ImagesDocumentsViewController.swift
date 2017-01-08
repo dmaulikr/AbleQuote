@@ -10,8 +10,14 @@ import UIKit
 
 class ImagesDocumentsViewController: UIViewController {
 
+    @IBAction func DoneImageDocument(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
 
         // Do any additional setup after loading the view.
     }
@@ -21,10 +27,6 @@ class ImagesDocumentsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func Done(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-
-    }
 
     /*
     // MARK: - Navigation
@@ -36,4 +38,15 @@ class ImagesDocumentsViewController: UIViewController {
     }
     */
 
+}
+
+extension ImagesDocumentsViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ImagesDocumentsViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
