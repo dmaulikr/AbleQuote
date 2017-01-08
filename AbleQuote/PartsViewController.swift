@@ -8,18 +8,36 @@
 
 import UIKit
 
-class PartsViewController: UIViewController {
+class PartsViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    var InterestedIn = ["Electropolishing", "Passivation", "Titanium Andodizing", "Laser Marking/Engraving", "Degreasing"];
+    
+    @IBOutlet weak var InterestedInPicker: UIPickerView!
 
-    @IBAction func DoneParts(sender: AnyObject) {
+    @IBOutlet weak var txtReason: UITextView!
+    
+    @IBAction func DoneParts(sender: AnyObject){
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        //myImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.hideKeyboardWhenTappedAround()
+        
+        self.InterestedInPicker.delegate = self
+        self.InterestedInPicker.dataSource = self
+        self.InterestedInPicker.selectRow(0, inComponent: 0, animated: true)
+        
+        txtReason.layer.borderColor = UIColor.blackColor().CGColor //set your color here
+        txtReason.layer.borderWidth = 1.0
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,6 +45,22 @@ class PartsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return InterestedIn.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return InterestedIn[row]  //pickerDataSource[component][row]
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        //self.WeArePicker.text = (WeAre[row])
+    }
+
 
     /*
     // MARK: - Navigation

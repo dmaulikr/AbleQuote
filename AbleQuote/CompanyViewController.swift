@@ -10,9 +10,11 @@ import UIKit
 
 class CompanyViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource  {
     
-    
-    var WeAre = ["Original Equipment Mfg", "Mfg/Supplier", "Metalworking House", "Job Shop"];
+    var WeAre = ["Original Equipment Mfg", "Manufacturer/Supplier", "Metalworking House", "Job Shop"];
 
+    @IBOutlet weak var txtAddress: UITextView!
+
+    
     @IBOutlet weak var WeArePicker: UIPickerView!
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
@@ -28,12 +30,16 @@ class CompanyViewController: UIViewController,UIImagePickerControllerDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.hideKeyboardWhenTappedAround()
+        
         self.WeArePicker.delegate = self
         self.WeArePicker.dataSource = self
         self.WeArePicker.selectRow(0, inComponent: 0, animated: true)
+        
+        txtAddress.layer.borderColor = UIColor.blackColor().CGColor //set your color here
+        txtAddress.layer.borderWidth = 1.0
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,7 +50,6 @@ class CompanyViewController: UIViewController,UIImagePickerControllerDelegate, U
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
-
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return WeAre.count
