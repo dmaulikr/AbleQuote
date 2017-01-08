@@ -11,7 +11,7 @@ import UIKit
 class CompanyViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource  {
     
     
-    var Areas = ["N/A", "PreClean", "Rack", "EP","Pass", "Laser", "Rinse", "Oven","Pack","EngChange","Add"];
+    var WeAre = ["Original Equipment Mfg", "Mfg/Supplier", "Metalworking House", "Job Shop"];
 
     @IBOutlet weak var WeArePicker: UIPickerView!
     
@@ -29,6 +29,9 @@ class CompanyViewController: UIViewController,UIImagePickerControllerDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        self.WeArePicker.delegate = self
+        self.WeArePicker.dataSource = self
+        self.WeArePicker.selectRow(0, inComponent: 0, animated: true)
 
         // Do any additional setup after loading the view.
     }
@@ -44,15 +47,15 @@ class CompanyViewController: UIViewController,UIImagePickerControllerDelegate, U
 
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return Areas.count
+        return WeAre.count
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return Areas[row]  //pickerDataSource[component][row]
+        return WeAre[row]  //pickerDataSource[component][row]
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        //self.WeArePicker.text = (Areas[row])
+        //self.WeArePicker.text = (WeAre[row])
     }
 
     
