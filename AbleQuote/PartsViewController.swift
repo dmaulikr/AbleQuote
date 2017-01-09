@@ -12,6 +12,11 @@ class PartsViewController: UIViewController,UIImagePickerControllerDelegate, UIN
     
     var InterestedIn = ["Electropolishing", "Passivation", "Titanium Andodizing", "Laser Marking/Engraving", "Degreasing"];
     
+    @IBOutlet weak var txtLotSizes: UITextField!
+    @IBOutlet weak var txtAnnualVolume: UITextField!
+    @IBOutlet weak var txtMaterialType: UITextField!
+    @IBOutlet weak var txtPriorOperation: UITextField!
+    @IBOutlet weak var txtReason: UITextView!
     @IBOutlet weak var InterestedInPicker: UIPickerView!
     
     @IBAction func DoneParts(sender: AnyObject){
@@ -33,8 +38,8 @@ class PartsViewController: UIViewController,UIImagePickerControllerDelegate, UIN
         self.InterestedInPicker.dataSource = self
         self.InterestedInPicker.selectRow(0, inComponent: 0, animated: true)
         
-        //txtReason.layer.borderColor = UIColor.blackColor().CGColor //set your color here
-        //txtReason.layer.borderWidth = 1.0
+        txtReason.layer.borderColor = UIColor.blackColor().CGColor //set your color here
+        txtReason.layer.borderWidth = 1.0
 
     }
 
