@@ -64,8 +64,28 @@ class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITe
         
             picker.mailComposeDelegate = self
             picker.setToRecipients(["jscoltock3@gmail.com"])
-            picker.setMessageBody("<b>Request for Quote from Able Electropolishing</b>", isHTML: true)
             picker.setSubject("Request for Quote")
+            
+            //var Body = "<b>Request for Quote from Able Electropolishing</b>\n"
+            
+            var Body = "Request for Quote from Able Electropolishing"
+            Body = Body + "\n\nCompany Name: " + gCompanyName
+            Body = Body + "\nAddress: " + gAddress
+            Body = Body + "\nState: " + gState
+            Body = Body + "\nZip/Postal Code: " + gZip
+            Body = Body + "\nCountry: " + gCountry
+            Body = Body + "\nWe are: " + gWeArePicker
+
+            Body = Body + "\n\nRequested By: " + gFirstName + " " + gLastName
+            Body = Body + "\nTitle: " + gJobTitle
+            Body = Body + "\nEmail: " + gEmail
+            
+            
+         
+            
+            
+            
+            picker.setMessageBody(Body, isHTML: false)
             
             //let testimage = MyImageView.image
             //let orientedImage = UIImage(CGImage: testimage!.CGImage!, scale: 1, orientation: testimage!.imageOrientation)
