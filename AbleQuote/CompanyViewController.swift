@@ -12,9 +12,12 @@ class CompanyViewController: UIViewController,UIImagePickerControllerDelegate, U
     
     var WeAre = ["Original Equipment Mfg", "Manufacturer/Supplier", "Metalworking House", "Job Shop"];
 
+    @IBOutlet weak var txtCompanyName: UITextField!
     @IBOutlet weak var txtAddress: UITextView!
-
-    
+    @IBOutlet weak var txtState: UITextField!
+    @IBOutlet weak var txtZip: UITextField!
+    @IBOutlet weak var txtCountry: UITextField!
+    @IBOutlet weak var txtPhone: UITextField!
     @IBOutlet weak var WeArePicker: UIPickerView!
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {

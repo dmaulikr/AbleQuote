@@ -10,7 +10,11 @@ import UIKit
 
 class PersonalViewController: UIViewController {
 
-    
+    @IBOutlet weak var txtFirstName: UITextField!
+    @IBOutlet weak var txtLastName: UITextField!
+    @IBOutlet weak var txtJobTitle: UITextField!
+    @IBOutlet weak var txtEmail: UITextField!
+
     @IBAction func DonePersonal(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
         

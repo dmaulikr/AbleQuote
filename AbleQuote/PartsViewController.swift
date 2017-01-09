@@ -13,8 +13,6 @@ class PartsViewController: UIViewController,UIImagePickerControllerDelegate, UIN
     var InterestedIn = ["Electropolishing", "Passivation", "Titanium Andodizing", "Laser Marking/Engraving", "Degreasing"];
     
     @IBOutlet weak var InterestedInPicker: UIPickerView!
-
-    @IBOutlet weak var txtReason: UITextView!
     
     @IBAction func DoneParts(sender: AnyObject){
         dismissViewControllerAnimated(true, completion: nil)
@@ -35,8 +33,8 @@ class PartsViewController: UIViewController,UIImagePickerControllerDelegate, UIN
         self.InterestedInPicker.dataSource = self
         self.InterestedInPicker.selectRow(0, inComponent: 0, animated: true)
         
-        txtReason.layer.borderColor = UIColor.blackColor().CGColor //set your color here
-        txtReason.layer.borderWidth = 1.0
+        //txtReason.layer.borderColor = UIColor.blackColor().CGColor //set your color here
+        //txtReason.layer.borderWidth = 1.0
 
     }
 
