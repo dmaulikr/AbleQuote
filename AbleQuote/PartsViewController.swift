@@ -25,7 +25,6 @@ class PartsViewController: UIViewController,UIImagePickerControllerDelegate, UIN
         gMaterialType = txtMaterialType.text!
         gPriorOperation = txtPriorOperation.text!
         gReason = txtReason.text!
-        gInterestedInPicker = InterestedInPicker.description
         
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -43,10 +42,17 @@ class PartsViewController: UIViewController,UIImagePickerControllerDelegate, UIN
         
         self.InterestedInPicker.delegate = self
         self.InterestedInPicker.dataSource = self
-        self.InterestedInPicker.selectRow(0, inComponent: 0, animated: true)
+        self.InterestedInPicker.selectRow(gInterestedInPickerIndex, inComponent: 0, animated: true)
         
         txtReason.layer.borderColor = UIColor.blackColor().CGColor //set your color here
         txtReason.layer.borderWidth = 1.0
+        
+        txtLotSizes.text! = gLotSizes
+        txtAnnualVolume.text! = gAnnualVolume
+        txtMaterialType.text! = gMaterialType
+        txtPriorOperation.text! = gPriorOperation
+        txtReason.text! = gReason
+        
 
     }
 
@@ -68,7 +74,8 @@ class PartsViewController: UIViewController,UIImagePickerControllerDelegate, UIN
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        //self.WeArePicker.text = (WeAre[row])
+        gInterestedInPicker = (InterestedIn[row])
+        gInterestedInPickerIndex = row
     }
 
 

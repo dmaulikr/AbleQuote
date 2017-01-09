@@ -32,9 +32,9 @@ class CompanyViewController: UIViewController,UIImagePickerControllerDelegate, U
         gCompanyName = txtCompanyName.text!
         gAddress = txtAddress.text!
         gState = txtState.text!
+        gZip = txtState.text!
         gCountry = txtCountry.text!
         gPhone = txtPhone.text!
-        gWeArePicker = WeArePicker.description
         
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -46,10 +46,17 @@ class CompanyViewController: UIViewController,UIImagePickerControllerDelegate, U
         
         self.WeArePicker.delegate = self
         self.WeArePicker.dataSource = self
-        self.WeArePicker.selectRow(0, inComponent: 0, animated: true)
+        self.WeArePicker.selectRow(gWeArePickerIndex, inComponent: 0, animated: true)
         
         txtAddress.layer.borderColor = UIColor.blackColor().CGColor //set your color here
         txtAddress.layer.borderWidth = 1.0
+        
+        txtCompanyName.text! = gCompanyName
+        txtAddress.text! = gAddress
+        txtState.text! = gState
+        txtZip.text! = gZip
+        txtCountry.text! = gCountry
+        txtPhone.text! = gPhone
 
     }
 
@@ -71,7 +78,8 @@ class CompanyViewController: UIViewController,UIImagePickerControllerDelegate, U
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        //self.WeArePicker.text = (WeAre[row])
+        gWeArePickerIndex = row
+        gWeArePicker = (WeAre[row])
     }
 
     

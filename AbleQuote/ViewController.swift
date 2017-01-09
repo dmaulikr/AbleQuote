@@ -9,6 +9,8 @@
 import UIKit
 import MessageUI
 
+var cameFromEmailComposer:Bool = false
+
 var gCompanyName = ""
 var gAddress = ""
 var gState = ""
@@ -16,6 +18,7 @@ var gZip = ""
 var gCountry = ""
 var gPhone = ""
 var gWeArePicker = ""
+var gWeArePickerIndex = 0
 
 var gFirstName = ""
 var gLastName = ""
@@ -28,6 +31,7 @@ var gMaterialType = ""
 var gPriorOperation = ""
 var gReason = ""
 var gInterestedInPicker = ""
+var gInterestedInPickerIndex = 0
 
 class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITextFieldDelegate, UITextViewDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate  {
 
@@ -37,6 +41,8 @@ class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITe
         picker.sourceType = .Camera
         
         presentViewController(picker, animated: true, completion: nil)
+        
+        cameFromEmailComposer = false
         
     }
     
@@ -50,6 +56,8 @@ class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITe
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         MyImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        
+        cameFromEmailComposer = false
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -68,7 +76,7 @@ class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITe
             
             //var Body = "<b>Request for Quote from Able Electropolishing</b>\n"
             
-            var Body = "Request for Quote from Able Electropolishing"
+            var Body = "REQUEST FOR QUOTE"
             Body = Body + "\n\nCompany Name: " + gCompanyName
             Body = Body + "\nAddress: " + gAddress
             Body = Body + "\nState: " + gState
@@ -78,12 +86,15 @@ class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITe
 
             Body = Body + "\n\nRequested By: " + gFirstName + " " + gLastName
             Body = Body + "\nTitle: " + gJobTitle
+            Body = Body + "\nWork Phone: " + gPhone
             Body = Body + "\nEmail: " + gEmail
-            
-            
-         
-            
-            
+        
+            Body = Body + "\n\nLot Sizes: " + gLotSizes
+            Body = Body + "\nAnnual Volume: " + gAnnualVolume
+            Body = Body + "\nMaterial Type: " + gMaterialType
+            Body = Body + "\nPrior Operation: " + gPriorOperation
+            Body = Body + "\nInterested In: " + gInterestedInPicker
+            Body = Body + "\nPrimary Reason for Service: " + gReason
             
             picker.setMessageBody(Body, isHTML: false)
             
@@ -106,6 +117,7 @@ class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITe
             }
             */
             presentViewController(picker, animated: true, completion: nil)
+            cameFromEmailComposer = true
         }
     }
     
@@ -118,9 +130,14 @@ class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITe
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
     
+    override func viewDidAppear(animated: Bool) {
+        if cameFromEmailComposer {
+            MyImageView.image = nil
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
