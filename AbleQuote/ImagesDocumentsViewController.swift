@@ -33,6 +33,13 @@ class ImagesDocumentsViewController: UIViewController,UINavigationControllerDele
 
     }
     
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        MyImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    
     @IBOutlet weak var MyImageView: UIImageView!
     
     override func viewDidLoad() {
