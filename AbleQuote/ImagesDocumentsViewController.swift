@@ -8,12 +8,32 @@
 
 import UIKit
 
-class ImagesDocumentsViewController: UIViewController {
+
+class ImagesDocumentsViewController: UIViewController,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
 
     @IBAction func DoneImageDocument(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
         
     }
+    
+    @IBAction func SelectPhoto(sender: AnyObject) {
+        let myPickerController = UIImagePickerController()
+        myPickerController.delegate = self;
+        myPickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        
+        self.presentViewController(myPickerController, animated: true, completion: nil)
+    }
+    
+    @IBAction func TakePhoto(sender: AnyObject) {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.sourceType = .Camera
+        
+        presentViewController(picker, animated: true, completion: nil)
+
+    }
+    
+    @IBOutlet weak var MyImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
