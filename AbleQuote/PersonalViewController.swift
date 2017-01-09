@@ -16,6 +16,11 @@ class PersonalViewController: UIViewController {
     @IBOutlet weak var txtEmail: UITextField!
 
     @IBAction func DonePersonal(sender: AnyObject) {
+        gFirstName = txtFirstName.text!
+        gLastName = txtLastName.text!
+        gJobTitle = txtJobTitle.text!
+        gEmail = txtEmail.text!
+        
         dismissViewControllerAnimated(true, completion: nil)
         
     }

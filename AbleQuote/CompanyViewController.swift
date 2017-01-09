@@ -28,6 +28,14 @@ class CompanyViewController: UIViewController,UIImagePickerControllerDelegate, U
 
     
     @IBAction func DoneCompany(sender: AnyObject) {
+        
+        gCompanyName = txtCompanyName.text!
+        gAddress = txtAddress.text!
+        gState = txtState.text!
+        gCountry = txtCountry.text!
+        gPhone = txtPhone.text!
+        gWeArePicker = WeArePicker.description
+        
         dismissViewControllerAnimated(true, completion: nil)
     }
     

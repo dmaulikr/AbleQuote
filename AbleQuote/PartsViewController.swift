@@ -20,6 +20,13 @@ class PartsViewController: UIViewController,UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var InterestedInPicker: UIPickerView!
     
     @IBAction func DoneParts(sender: AnyObject){
+        gLotSizes = txtLotSizes.text!
+        gAnnualVolume = txtAnnualVolume.text!
+        gMaterialType = txtMaterialType.text!
+        gPriorOperation = txtPriorOperation.text!
+        gReason = txtReason.text!
+        gInterestedInPicker = InterestedInPicker.description
+        
         dismissViewControllerAnimated(true, completion: nil)
     }
     

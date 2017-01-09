@@ -9,6 +9,26 @@
 import UIKit
 import MessageUI
 
+var gCompanyName = ""
+var gAddress = ""
+var gState = ""
+var gZip = ""
+var gCountry = ""
+var gPhone = ""
+var gWeArePicker = ""
+
+var gFirstName = ""
+var gLastName = ""
+var gJobTitle = ""
+var gEmail = ""
+
+var gLotSizes = ""
+var gAnnualVolume = ""
+var gMaterialType = ""
+var gPriorOperation = ""
+var gReason = ""
+var gInterestedInPicker = ""
+
 class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITextFieldDelegate, UITextViewDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate  {
 
     @IBAction func TakePhoto(sender: AnyObject) {
