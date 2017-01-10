@@ -71,7 +71,7 @@ class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITe
             let picker = MFMailComposeViewController()
         
             picker.mailComposeDelegate = self
-            picker.setToRecipients(["jscoltock3@gmail.com"])
+            picker.setToRecipients(["jscoltock3@gmail.com","tomg@ableelectropolishing.com"])
             picker.setSubject("Request for Quote")
             
             //var Body = "<b>Request for Quote from Able Electropolishing</b>\n"
