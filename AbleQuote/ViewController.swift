@@ -36,7 +36,6 @@ var gInterestedInPickerIndex = 0
 var gCompanyValid = false
 var gPersonalValid = false
 var gPartsValid = false
-var gPhotoValid = false
 
 class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITextFieldDelegate, UITextViewDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
 
@@ -183,12 +182,12 @@ class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITe
             PartsCheck.image = nil
         }
         
-        if gPhotoValid == true {
-            PhotoCheck.image = UIImage(named: "CheckMark")
+        if MyImageView .image == nil {
+            PhotoCheck.image = nil
         }
         else
         {
-            PhotoCheck.image = nil
+            PhotoCheck.image = UIImage(named: "CheckMark")
         }
         
     }
