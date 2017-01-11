@@ -19,14 +19,60 @@ class PartsViewController: UIViewController,UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var txtReason: UITextView!
     @IBOutlet weak var InterestedInPicker: UIPickerView!
     
-    @IBAction func DoneParts(sender: AnyObject){
-        gLotSizes = txtLotSizes.text!
-        gAnnualVolume = txtAnnualVolume.text!
-        gMaterialType = txtMaterialType.text!
-        gPriorOperation = txtPriorOperation.text!
-        gReason = txtReason.text!
-        
+    @IBAction func CancelParts(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func DoneParts(sender: AnyObject){
+        if txtLotSizes.text! == "" {
+            let alertController = UIAlertController(title: "Missing Lot Sizes", message: "Lot sizes is a required field", preferredStyle: .Alert)
+            let defaultAction = UIAlertAction(title: "Close Alert", style: .Default, handler: nil)
+            alertController.addAction(defaultAction)
+            presentViewController(alertController, animated: true, completion: nil)
+        }
+        else {
+            if txtAnnualVolume.text! == "" {
+                let alertController = UIAlertController(title: "Missing Annual Volume", message: "Annual Volume is a required field", preferredStyle: .Alert)
+                let defaultAction = UIAlertAction(title: "Close Alert", style: .Default, handler: nil)
+                alertController.addAction(defaultAction)
+                presentViewController(alertController, animated: true, completion: nil)
+            }
+            else {
+                if txtMaterialType.text == "" {
+                    let alertController = UIAlertController(title: "Missing Material Type", message: "Material Type is a required field", preferredStyle: .Alert)
+                    let defaultAction = UIAlertAction(title: "Close Alert", style: .Default, handler: nil)
+                    alertController.addAction(defaultAction)
+                    presentViewController(alertController, animated: true, completion: nil)
+                }
+                else {
+                    if txtPriorOperation.text! == "" {
+                        let alertController = UIAlertController(title: "Missing Prior Operation", message: "Prior Operation is a required field", preferredStyle: .Alert)
+                        let defaultAction = UIAlertAction(title: "Close Alert", style: .Default, handler: nil)
+                        alertController.addAction(defaultAction)
+                        presentViewController(alertController, animated: true, completion: nil)
+                    }
+                    else {
+                        if txtReason.text == "" {
+                            let alertController = UIAlertController(title: "Missing Primary Reason", message: "Primary Reason is a required field", preferredStyle: .Alert)
+                            let defaultAction = UIAlertAction(title: "Close Alert", style: .Default, handler: nil)
+                            alertController.addAction(defaultAction)
+                            presentViewController(alertController, animated: true, completion: nil)
+                        }
+                        else {
+                            gLotSizes = txtLotSizes.text!
+                            gAnnualVolume = txtAnnualVolume.text!
+                            gMaterialType = txtMaterialType.text!
+                            gPriorOperation = txtPriorOperation.text!
+                            gReason = txtReason.text!
+                            
+                            gPartsValid = true
+
+                            dismissViewControllerAnimated(true, completion: nil)
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {

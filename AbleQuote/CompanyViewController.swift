@@ -26,17 +26,70 @@ class CompanyViewController: UIViewController,UIImagePickerControllerDelegate, U
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
+    @IBAction func CancelCompany(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
     @IBAction func DoneCompany(sender: AnyObject) {
         
-        gCompanyName = txtCompanyName.text!
-        gAddress = txtAddress.text!
-        gState = txtState.text!
-        gZip = txtState.text!
-        gCountry = txtCountry.text!
-        gPhone = txtPhone.text!
+        if txtCompanyName.text! == "" {
+            let alertController = UIAlertController(title: "Missing Company Name", message: "Company Name is a required field", preferredStyle: .Alert)
+            let defaultAction = UIAlertAction(title: "Close Alert", style: .Default, handler: nil)
+            alertController.addAction(defaultAction)
+            presentViewController(alertController, animated: true, completion: nil)
+        }
+        else {
+            if txtAddress.text! == "" {
+                let alertController = UIAlertController(title: "Missing Address", message: "Address is a required field", preferredStyle: .Alert)
+                let defaultAction = UIAlertAction(title: "Close Alert", style: .Default, handler: nil)
+                alertController.addAction(defaultAction)
+                presentViewController(alertController, animated: true, completion: nil)
+            }
+            else {
+                if txtState.text == "" {
+                    let alertController = UIAlertController(title: "Missing State", message: "State is a required field", preferredStyle: .Alert)
+                    let defaultAction = UIAlertAction(title: "Close Alert", style: .Default, handler: nil)
+                    alertController.addAction(defaultAction)
+                    presentViewController(alertController, animated: true, completion: nil)
+                }
+                else {
+                    if txtZip.text! == "" {
+                        let alertController = UIAlertController(title: "Missing Zip Code", message: "Zip Code is a required field", preferredStyle: .Alert)
+                        let defaultAction = UIAlertAction(title: "Close Alert", style: .Default, handler: nil)
+                        alertController.addAction(defaultAction)
+                        presentViewController(alertController, animated: true, completion: nil)
+                    }
+                    else {
+                        if txtCountry.text == "" {
+                            let alertController = UIAlertController(title: "Missing Country", message: "Country is a required field", preferredStyle: .Alert)
+                            let defaultAction = UIAlertAction(title: "Close Alert", style: .Default, handler: nil)
+                            alertController.addAction(defaultAction)
+                            presentViewController(alertController, animated: true, completion: nil)
+                        }
+                        else {
+                            if txtPhone.text! == "" {
+                                let alertController = UIAlertController(title: "Missing Phone number", message: "Phone number is a required field", preferredStyle: .Alert)
+                                let defaultAction = UIAlertAction(title: "Close Alert", style: .Default, handler: nil)
+                                alertController.addAction(defaultAction)
+                                presentViewController(alertController, animated: true, completion: nil)
+                            }
+                            else {
+                                gCompanyName = txtCompanyName.text!
+                                gAddress = txtAddress.text!
+                                gState = txtState.text!
+                                gZip = txtState.text!
+                                gCountry = txtCountry.text!
+                                gPhone = txtPhone.text!
+                                
+                                gCompanyValid = true
         
-        dismissViewControllerAnimated(true, completion: nil)
+                                dismissViewControllerAnimated(true, completion: nil)
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     
     override func viewDidLoad() {

@@ -33,8 +33,19 @@ var gReason = ""
 var gInterestedInPicker = ""
 var gInterestedInPickerIndex = 0
 
-class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITextFieldDelegate, UITextViewDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate  {
+var gCompanyValid = false
+var gPersonalValid = false
+var gPartsValid = false
+var gPhotoValid = false
 
+class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITextFieldDelegate, UITextViewDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
+
+    @IBOutlet weak var CompanyCheck: UIImageView!
+    @IBOutlet weak var PersonalCheck: UIImageView!
+    @IBOutlet weak var PartsCheck: UIImageView!
+    @IBOutlet weak var PhotoCheck: UIImageView!
+    
+    
     @IBAction func TakePhoto(sender: AnyObject) {
         let picker = UIImagePickerController()
         picker.delegate = self
@@ -43,7 +54,6 @@ class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITe
         presentViewController(picker, animated: true, completion: nil)
         
         cameFromEmailComposer = false
-        
     }
     
     @IBAction func SelectPhoto(sender: AnyObject) {
@@ -56,7 +66,6 @@ class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITe
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         MyImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
-        
         cameFromEmailComposer = false
         
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -129,7 +138,11 @@ class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         hideKeyboardWhenTappedAround()
+        
+        //CompanyCheck.image = UIImage(named: "CheckMark")
+        ShowValidCheckMarks()
         
     }
     
@@ -137,15 +150,101 @@ class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITe
         if cameFromEmailComposer {
             MyImageView.image = nil
         }
+        ShowValidCheckMarks()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    func ShowValidCheckMarks() {
+        if gPersonalValid == true {
+            PersonalCheck.image = UIImage(named: "CheckMark")
+        }
+        else
+        {
+            PersonalCheck.image = nil
+        }
+        
+        if gCompanyValid == true {
+            CompanyCheck.image = UIImage(named: "CheckMark")
+        }
+        else
+        {
+            CompanyCheck.image = nil
+        }
+        
+        if gPartsValid == true {
+            PartsCheck.image = UIImage(named: "CheckMark")
+        }
+        else
+        {
+            PartsCheck.image = nil
+        }
+        
+        if gPhotoValid == true {
+            PhotoCheck.image = UIImage(named: "CheckMark")
+        }
+        else
+        {
+            PhotoCheck.image = nil
+        }
+        
+    }
 }
 
+
+/*
+var titlePlayerContent = ""
+func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL){
+    if(controller.documentPickerMode == UIDocumentPickerMode.Import) {
+    //if(controller.documentPickerMode == UIDocumentPickerMode.import){
+        let content = openFile(path: url.path, UTF8: String.Encoding.utf8)
+        titlePlayerContent.text = content
+    }
+}
+
+func openFile(path:String, UTF8:String.Encoding = String.Encoding.utf8) -> String? {
+    var error: NSError?
+    return FileManager().fileExists(atPath: path) ? String(contentsOfFile: path, encoding: UTF8, error: &error)! : nil
+    
+}
+
+*/
+
+
+
+/*
+func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+    
+    print("we cancelled")
+    
+    dismiss(animated: true, completion: nil)
+    
+}
+
+@available(iOS 8.0, *)
+public func documentPicker(controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
+    
+    
+    let cico = url as URL
+    print("The Url is : /(cico)")
+    
+    
+    //optional, case PDF -> render
+    //displayPDFweb.loadRequest(NSURLRequest(url: cico) as URLRequest)
+    
+}
+
+//@available(iOS 8.0, *)
+public func documentMenu(_ documentMenu:     UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
+    
+    documentPicker.delegate = self
+    present(documentPicker, animated: true, completion: nil)
+    
+}
+*/
 
 extension ViewController {
     func hideKeyboardWhenTappedAround() {
@@ -156,5 +255,6 @@ extension ViewController {
     func dismissKeyboard() {
         view.endEditing(true)
     }
+    
 }
 
