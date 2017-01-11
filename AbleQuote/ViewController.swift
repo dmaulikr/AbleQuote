@@ -73,59 +73,66 @@ class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITe
     @IBOutlet weak var MyImageView: UIImageView!
     
     @IBAction func composeEmail(sender: AnyObject) {
-        
-        if MFMailComposeViewController.canSendMail() {
-        
-            let picker = MFMailComposeViewController()
-        
-            picker.mailComposeDelegate = self
-            picker.setToRecipients(["jscoltock3@gmail.com","tomg@ableelectropolishing.com"])
-            picker.setSubject("Request for Quote")
+        if gCompanyValid && gPersonalValid && gPartsValid && MyImageView.image != nil {
+            if MFMailComposeViewController.canSendMail() {
             
-            //var Body = "<b>Request for Quote from Able Electropolishing</b>\n"
+                let picker = MFMailComposeViewController()
             
-            var Body = "REQUEST FOR QUOTE"
-            Body = Body + "\n\nCompany Name: " + gCompanyName
-            Body = Body + "\nAddress: " + gAddress
-            Body = Body + "\nState: " + gState
-            Body = Body + "\nZip/Postal Code: " + gZip
-            Body = Body + "\nCountry: " + gCountry
-            Body = Body + "\nWe are: " + gWeArePicker
-
-            Body = Body + "\n\nRequested By: " + gFirstName + " " + gLastName
-            Body = Body + "\nTitle: " + gJobTitle
-            Body = Body + "\nWork Phone: " + gPhone
-            Body = Body + "\nEmail: " + gEmail
-        
-            Body = Body + "\n\nLot Sizes: " + gLotSizes
-            Body = Body + "\nAnnual Volume: " + gAnnualVolume
-            Body = Body + "\nMaterial Type: " + gMaterialType
-            Body = Body + "\nPrior Operation: " + gPriorOperation
-            Body = Body + "\nInterested In: " + gInterestedInPicker
-            Body = Body + "\nPrimary Reason for Service: " + gReason
-            
-            picker.setMessageBody(Body, isHTML: false)
-            
-            //let testimage = MyImageView.image
-            //let orientedImage = UIImage(CGImage: testimage!.CGImage!, scale: 1, orientation: testimage!.imageOrientation)
-            //let imageData: NSData = UIImagePNGRepresentation(orientedImage)!
-
-            let imageData: NSData = UIImagePNGRepresentation(MyImageView.image!)!
-            
-            picker.addAttachmentData(imageData, mimeType: "image/jpg", fileName: "QuotePart.jpg")
-            
-            /*
-            if let filePath = NSBundle.mainBundle().pathForResource("swifts", ofType: "wav") {
-                print("File path loaded.")
+                picker.mailComposeDelegate = self
+                picker.setToRecipients(["jscoltock3@gmail.com","tomg@ableelectropolishing.com"])
+                picker.setSubject("Request for Quote")
                 
-                if let fileData = NSData(contentsOfFile: filePath) {
-                    print("File data loaded.")
-                    picker.addAttachmentData(fileData, mimeType: "audio/wav", fileName: "swifts")
+                //var Body = "<b>Request for Quote from Able Electropolishing</b>\n"
+                
+                var Body = "REQUEST FOR QUOTE"
+                Body = Body + "\n\nCompany Name: " + gCompanyName
+                Body = Body + "\nAddress: " + gAddress
+                Body = Body + "\nState: " + gState
+                Body = Body + "\nZip/Postal Code: " + gZip
+                Body = Body + "\nCountry: " + gCountry
+                Body = Body + "\nWe are: " + gWeArePicker
+
+                Body = Body + "\n\nRequested By: " + gFirstName + " " + gLastName
+                Body = Body + "\nTitle: " + gJobTitle
+                Body = Body + "\nWork Phone: " + gPhone
+                Body = Body + "\nEmail: " + gEmail
+            
+                Body = Body + "\n\nLot Sizes: " + gLotSizes
+                Body = Body + "\nAnnual Volume: " + gAnnualVolume
+                Body = Body + "\nMaterial Type: " + gMaterialType
+                Body = Body + "\nPrior Operation: " + gPriorOperation
+                Body = Body + "\nInterested In: " + gInterestedInPicker
+                Body = Body + "\nPrimary Reason for Service: " + gReason
+                
+                picker.setMessageBody(Body, isHTML: false)
+                
+                //let testimage = MyImageView.image
+                //let orientedImage = UIImage(CGImage: testimage!.CGImage!, scale: 1, orientation: testimage!.imageOrientation)
+                //let imageData: NSData = UIImagePNGRepresentation(orientedImage)!
+
+                let imageData: NSData = UIImagePNGRepresentation(MyImageView.image!)!
+                
+                picker.addAttachmentData(imageData, mimeType: "image/jpg", fileName: "QuotePart.jpg")
+                
+                /*
+                if let filePath = NSBundle.mainBundle().pathForResource("swifts", ofType: "wav") {
+                    print("File path loaded.")
+                    
+                    if let fileData = NSData(contentsOfFile: filePath) {
+                        print("File data loaded.")
+                        picker.addAttachmentData(fileData, mimeType: "audio/wav", fileName: "swifts")
+                    }
                 }
+                */
+                presentViewController(picker, animated: true, completion: nil)
+                cameFromEmailComposer = true
             }
-            */
-            presentViewController(picker, animated: true, completion: nil)
-            cameFromEmailComposer = true
+        }
+        else {
+            let alertController = UIAlertController(title: "Missing Required Fields", message: "One or more required fields are missing", preferredStyle: .Alert)
+            let defaultAction = UIAlertAction(title: "Close Alert", style: .Default, handler: nil)
+            alertController.addAction(defaultAction)
+            presentViewController(alertController, animated: true, completion: nil)
         }
     }
     
