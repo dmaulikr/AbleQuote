@@ -37,6 +37,9 @@ var gCompanyValid = false
 var gPersonalValid = false
 var gPartsValid = false
 
+let QuoteDefaults = NSUserDefaults.standardUserDefaults()
+let defaultValues = ["dCompanyName" : "",  "dAddress" : "",  "dState" : "",  "dZip" : "",  "dCountry" : "United States",  "dPhone" : "","dFirstName" : "",  "dLastName" : "",  "dJobTitle" : "",  "dEmail" : ""]
+
 class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITextFieldDelegate, UITextViewDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
 
     @IBOutlet weak var CompanyCheck: UIImageView!
@@ -145,9 +148,22 @@ class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        QuoteDefaults.registerDefaults(defaultValues)
+        
         hideKeyboardWhenTappedAround()
         
-        //CompanyCheck.image = UIImage(named: "CheckMark")
+        gCompanyName = QuoteDefaults.stringForKey("dCompanyName")!
+        gAddress = QuoteDefaults.stringForKey("dAddress")!
+        gState = QuoteDefaults.stringForKey("dState")!
+        gZip = QuoteDefaults.stringForKey("dZip")!
+        gCountry = QuoteDefaults.stringForKey("dCountry")!
+        gPhone = QuoteDefaults.stringForKey("dPhone")!
+        
+        gFirstName = QuoteDefaults.stringForKey("dFirstName")!
+        gLastName = QuoteDefaults.stringForKey("dLastName")!
+        gJobTitle = QuoteDefaults.stringForKey("dJobTitle")!
+        gEmail = QuoteDefaults.stringForKey("dEmail")!
+    
         ShowValidCheckMarks()
         
     }
@@ -156,7 +172,7 @@ class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITe
         if cameFromEmailComposer {
             MyImageView.image = nil
         }
-        ShowValidCheckMarks()
+                ShowValidCheckMarks()
     }
 
     override func didReceiveMemoryWarning() {

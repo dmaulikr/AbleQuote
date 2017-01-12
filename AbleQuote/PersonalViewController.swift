@@ -58,6 +58,11 @@ class PersonalViewController: UIViewController {
                         
                             gPersonalValid = true
                         
+                            QuoteDefaults.setObject(gFirstName, forKey: "dFirstName")
+                            QuoteDefaults.setObject(gLastName, forKey: "dLastName")
+                            QuoteDefaults.setObject(gJobTitle, forKey: "dJobTitle")
+                            QuoteDefaults.setObject(gEmail, forKey: "dEmail")
+                        
                             dismissViewControllerAnimated(true, completion: nil)
                         }
                         else
@@ -79,6 +84,11 @@ class PersonalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        
+        gFirstName = QuoteDefaults.stringForKey("dFirstName")!
+        gLastName = QuoteDefaults.stringForKey("dLastName")!
+        gJobTitle = QuoteDefaults.stringForKey("dJobTitle")!
+        gEmail = QuoteDefaults.stringForKey("dEmail")!
 
         txtFirstName.text! = gFirstName
         txtLastName.text! = gLastName

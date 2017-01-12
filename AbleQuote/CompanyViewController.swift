@@ -21,8 +21,6 @@ class CompanyViewController: UIViewController,UIImagePickerControllerDelegate, U
     @IBOutlet weak var WeArePicker: UIPickerView!
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        //myImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
-        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
@@ -82,6 +80,13 @@ class CompanyViewController: UIViewController,UIImagePickerControllerDelegate, U
                                 gPhone = txtPhone.text!
                                 
                                 gCompanyValid = true
+                                
+                                QuoteDefaults.setObject(gCompanyName, forKey: "dCompanyName")
+                                QuoteDefaults.setObject(gAddress, forKey: "dAddress")
+                                QuoteDefaults.setObject(gState, forKey: "dState")
+                                QuoteDefaults.setObject(gZip, forKey: "dZip")
+                                QuoteDefaults.setObject(gCountry, forKey: "dCountry")
+                                QuoteDefaults.setObject(gPhone, forKey: "dPhone")
         
                                 dismissViewControllerAnimated(true, completion: nil)
                             }
@@ -103,6 +108,13 @@ class CompanyViewController: UIViewController,UIImagePickerControllerDelegate, U
         
         txtAddress.layer.borderColor = UIColor.blackColor().CGColor //set your color here
         txtAddress.layer.borderWidth = 1.0
+        
+        gCompanyName = QuoteDefaults.stringForKey("dCompanyName")!
+        gAddress = QuoteDefaults.stringForKey("dAddress")!
+        gState = QuoteDefaults.stringForKey("dState")!
+        gZip = QuoteDefaults.stringForKey("dZip")!
+        gCountry = QuoteDefaults.stringForKey("dCountry")!
+        gPhone = QuoteDefaults.stringForKey("dPhone")!
         
         txtCompanyName.text! = gCompanyName
         txtAddress.text! = gAddress
