@@ -46,8 +46,18 @@ class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITe
     @IBOutlet weak var PersonalCheck: UIImageView!
     @IBOutlet weak var PartsCheck: UIImageView!
     @IBOutlet weak var PhotoCheck: UIImageView!
+   
+    @IBAction func OpenImportDocumentPicker(sender: AnyObject) {
+        
+        //let documentProvider = UIDocumentPickerViewController(documentTypes: ["public.image", "public.audio", "public.movie", "public.text", "public.item", "public.content", "public.source-code"],inMode: .Import)
+        
+        //documentProvider.delegate = self
+        
+        //self.present(documentProvider, animated: true, completion: nil)
+        
+    }
     
-    
+ 
     @IBAction func TakePhoto(sender: AnyObject) {
         let picker = UIImagePickerController()
         picker.delegate = self
