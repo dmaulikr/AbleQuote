@@ -39,6 +39,7 @@ var gPersonalValid = false
 var gPartsValid = false
 
 var gFilename = ""
+var gFullPath = ""
 
 let QuoteDefaults = NSUserDefaults.standardUserDefaults()
 let defaultValues = ["dCompanyName" : "",  "dAddress" : "",  "dState" : "",  "dZip" : "",  "dCountry" : "United States",  "dPhone" : "","dFirstName" : "",  "dLastName" : "",  "dJobTitle" : "",  "dEmail" : ""]
@@ -119,9 +120,9 @@ class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITe
                 
                 picker.addAttachmentData(imageData, mimeType: "image/jpg", fileName: "QuotePart.jpg")
                 
-                if let fileData = NSData(contentsOfFile: gFilename) {
+                if let fileData = NSData(contentsOfFile: gFullPath) {
                     print("File data loaded.")
-                    picker.addAttachmentData(fileData, mimeType: "PDF/pdf", fileName: "UploadFile.pdf")
+                    picker.addAttachmentData(fileData, mimeType: "PDF/pdf", fileName: gFilename)
                 }
                 
                 /*

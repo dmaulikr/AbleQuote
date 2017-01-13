@@ -53,7 +53,8 @@ class Document_ViewController: UIViewController, UIDocumentMenuDelegate, UIDocum
         let Path: String = url.path!
         print(Path)
       
-        Filename.text = Path
-        gFilename = Path
+        gFilename = (Path as NSString).lastPathComponent
+        Filename.text = gFilename
+        gFullPath = Path
     }
 }

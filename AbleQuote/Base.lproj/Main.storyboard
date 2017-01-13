@@ -171,10 +171,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oqf-aj-w0w">
-                                <rect key="frame" x="76" y="453" width="159" height="32"/>
+                                <rect key="frame" x="75" y="453" width="162" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
-                                <state key="normal" title="Add PDF (optional)"/>
+                                <state key="normal" title="Upload File (optional)"/>
                                 <connections>
                                     <segue destination="1VT-Rr-h4I" kind="presentation" id="Hu0-QX-XTu"/>
                                 </connections>
