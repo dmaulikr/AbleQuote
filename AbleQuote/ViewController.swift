@@ -38,6 +38,8 @@ var gCompanyValid = false
 var gPersonalValid = false
 var gPartsValid = false
 
+var gFilename = ""
+
 let QuoteDefaults = NSUserDefaults.standardUserDefaults()
 let defaultValues = ["dCompanyName" : "",  "dAddress" : "",  "dState" : "",  "dZip" : "",  "dCountry" : "United States",  "dPhone" : "","dFirstName" : "",  "dLastName" : "",  "dJobTitle" : "",  "dEmail" : ""]
 
@@ -82,7 +84,7 @@ class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITe
                 let picker = MFMailComposeViewController()
             
                 picker.mailComposeDelegate = self
-                picker.setToRecipients(["jscoltock3@gmail.com","tomg@ableelectropolishing.com"])
+                picker.setToRecipients(["jscoltock3@gmail.com"])
                 picker.setSubject("Request for Quote")
                 
                 //var Body = "<b>Request for Quote from Able Electropolishing</b>\n"
@@ -117,6 +119,11 @@ class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITe
                 
                 picker.addAttachmentData(imageData, mimeType: "image/jpg", fileName: "QuotePart.jpg")
                 
+                if let fileData = NSData(contentsOfFile: gFilename) {
+                    print("File data loaded.")
+                    picker.addAttachmentData(fileData, mimeType: "PDF/pdf", fileName: "UploadFile.pdf")
+                }
+                
                 /*
                 if let filePath = NSBundle.mainBundle().pathForResource("swifts", ofType: "wav") {
                     print("File path loaded.")
@@ -143,7 +150,6 @@ class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITe
     func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -216,57 +222,6 @@ class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITe
     }
 }
 
-
-/*
-var titlePlayerContent = ""
-func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL){
-    if(controller.documentPickerMode == UIDocumentPickerMode.Import) {
-    //if(controller.documentPickerMode == UIDocumentPickerMode.import){
-        let content = openFile(path: url.path, UTF8: String.Encoding.utf8)
-        titlePlayerContent.text = content
-    }
-}
-
-func openFile(path:String, UTF8:String.Encoding = String.Encoding.utf8) -> String? {
-    var error: NSError?
-    return FileManager().fileExists(atPath: path) ? String(contentsOfFile: path, encoding: UTF8, error: &error)! : nil
-    
-}
-
-*/
-
-
-
-/*
-func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
-    
-    print("we cancelled")
-    
-    dismiss(animated: true, completion: nil)
-    
-}
-
-@available(iOS 8.0, *)
-public func documentPicker(controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
-    
-    
-    let cico = url as URL
-    print("The Url is : /(cico)")
-    
-    
-    //optional, case PDF -> render
-    //displayPDFweb.loadRequest(NSURLRequest(url: cico) as URLRequest)
-    
-}
-
-//@available(iOS 8.0, *)
-public func documentMenu(_ documentMenu:     UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
-    
-    documentPicker.delegate = self
-    present(documentPicker, animated: true, completion: nil)
-    
-}
-*/
 
 extension ViewController {
     func hideKeyboardWhenTappedAround() {

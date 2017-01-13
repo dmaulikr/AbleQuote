@@ -120,7 +120,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1a-Bz-9cc">
-                                <rect key="frame" x="21" y="511" width="287" height="40"/>
+                                <rect key="frame" x="12" y="512" width="287" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                                 <state key="normal" title="Email Request for Quote to Able">
@@ -158,15 +158,6 @@
                                     <action selector="TakePhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lfs-6Y-Llf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Yf-kn-rTC">
-                                <rect key="frame" x="38" y="227" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
-                                <state key="normal" title="Select Photo"/>
-                                <connections>
-                                    <action selector="SelectPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fWX-Mw-rfn"/>
-                                </connections>
-                            </button>
                             <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="goH-Ro-Ior" userLabel="Personal Check">
                                 <rect key="frame" x="266" y="188" width="25" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -183,7 +174,7 @@
                                 <rect key="frame" x="76" y="453" width="159" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
-                                <state key="normal" title="Add File For Upload"/>
+                                <state key="normal" title="Add PDF (optional)"/>
                                 <connections>
                                     <segue destination="1VT-Rr-h4I" kind="presentation" id="Hu0-QX-XTu"/>
                                 </connections>
@@ -192,6 +183,15 @@
                                 <rect key="frame" x="266" y="97" width="25" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Yf-kn-rTC">
+                                <rect key="frame" x="46" y="227" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                <state key="normal" title="Select Photo"/>
+                                <connections>
+                                    <action selector="SelectPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fWX-Mw-rfn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.60829074660000004" green="1" blue="0.90425925650000005" alpha="1" colorSpace="calibratedRGB"/>
                     </view>

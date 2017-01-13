@@ -30,21 +30,18 @@ class Document_ViewController: UIViewController, UIDocumentMenuDelegate, UIDocum
     
     @IBAction func handleImportPickerPressed(sender: AnyObject) {
         let documentPicker = UIDocumentPickerViewController(documentTypes: [kUTTypeText as NSString as String, kUTTypeContent as NSString as String], inMode: .Import)
-        //let documentPicker = UIDocumentPickerViewController(documentTypes: [kUTTypeText as NSString as String], inMode: .Import)
         
         documentPicker.delegate = self
         presentViewController(documentPicker, animated: false, completion: nil)
     }
     
-    // MARK:- UIDocumentMenuDelegate
+    //next func not used
     func documentMenu(documentMenu: UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
         documentPicker.delegate = self
         presentViewController(documentPicker, animated: true, completion: nil)
     }
-    
-    // MARK:- UIDocumentPickerDelegate
+
     func documentPicker(controller: UIDocumentPickerViewController, didPickDocumentAtURL url: NSURL) {
-        // Do something
         print(url)
       
         let absString: String = url.absoluteString!
@@ -57,7 +54,6 @@ class Document_ViewController: UIViewController, UIDocumentMenuDelegate, UIDocum
         print(Path)
       
         Filename.text = Path
-        
+        gFilename = Path
     }
-    
 }
