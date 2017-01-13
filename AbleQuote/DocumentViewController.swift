@@ -16,12 +16,6 @@ class Document_ViewController: UIViewController, UIDocumentMenuDelegate, UIDocum
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //handleImportMenuPressed(self)
-        //handleImportPickerPressed(self)
-        //importPicker()
-        
-        // Do any additional setup after loading the view, typically from a nib.
     }
    
     @IBAction func handleImportMenuPressed(sender: AnyObject) {
@@ -29,20 +23,13 @@ class Document_ViewController: UIViewController, UIDocumentMenuDelegate, UIDocum
      
         importMenu.delegate = self
         importMenu.addOptionWithTitle("Create New Document", image: nil, order: .First, handler: { print("New Doc Requested") })
-        presentViewController(importMenu, animated: true, completion: nil)
+        presentViewController(importMenu, animated: false, completion: nil)
     }
-    /*
-    func importPicker() {
-        let documentPicker = UIDocumentPickerViewController(documentTypes: [kUTTypeText as NSString as String], inMode: .Import)
-        documentPicker.delegate = self
-        presentViewController(documentPicker, animated: true, completion: nil)
-    }
-    */
     
     @IBAction func handleImportPickerPressed(sender: AnyObject) {
         let documentPicker = UIDocumentPickerViewController(documentTypes: [kUTTypeText as NSString as String], inMode: .Import)
         documentPicker.delegate = self
-        presentViewController(documentPicker, animated: true, completion: nil)
+        presentViewController(documentPicker, animated: false, completion: nil)
     }
     
     // MARK:- UIDocumentMenuDelegate
@@ -56,6 +43,5 @@ class Document_ViewController: UIViewController, UIDocumentMenuDelegate, UIDocum
         // Do something
         print(url)
     }
-    
     
 }

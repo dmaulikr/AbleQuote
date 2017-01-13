@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import MobileCoreServices
 
 var cameFromEmailComposer:Bool = false
 
@@ -46,7 +47,6 @@ class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITe
     @IBOutlet weak var PersonalCheck: UIImageView!
     @IBOutlet weak var PartsCheck: UIImageView!
     @IBOutlet weak var PhotoCheck: UIImageView!
-   
  
     @IBAction func TakePhoto(sender: AnyObject) {
         let picker = UIImagePickerController()
