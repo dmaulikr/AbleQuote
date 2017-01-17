@@ -18,6 +18,10 @@ class Document_ViewController: UIViewController, UIDocumentMenuDelegate, UIDocum
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Filename.layer.borderColor = UIColor.blackColor().CGColor //set your color here
+        Filename.layer.borderWidth = 1.0
+
     }
    
     @IBAction func handleImportMenuPressed(sender: AnyObject) {

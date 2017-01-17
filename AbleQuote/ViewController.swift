@@ -50,6 +50,8 @@ class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITe
     @IBOutlet weak var PersonalCheck: UIImageView!
     @IBOutlet weak var PartsCheck: UIImageView!
     @IBOutlet weak var PhotoCheck: UIImageView!
+    @IBOutlet weak var FileUploadCheck: UIImageView!
+    
  
     @IBAction func TakePhoto(sender: AnyObject) {
         let picker = UIImagePickerController()
@@ -85,7 +87,7 @@ class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITe
                 let picker = MFMailComposeViewController()
             
                 picker.mailComposeDelegate = self
-                picker.setToRecipients(["jscoltock3@gmail.com"])
+                picker.setToRecipients(["jscoltock3@gmail.com","tomg@ableelectropolishing.com","scottp@ableelectropolishing.com"])
                 picker.setSubject("Request for Quote")
                 
                 //var Body = "<b>Request for Quote from Able Electropolishing</b>\n"
@@ -220,6 +222,13 @@ class ViewController: UIViewController,MFMailComposeViewControllerDelegate, UITe
             PhotoCheck.image = UIImage(named: "CheckMark")
         }
         
+        if gFullPath == "" {
+            FileUploadCheck.image = nil
+        }
+        else
+        {
+            FileUploadCheck.image = UIImage(named: "CheckMark")
+        }
     }
 }
 

@@ -42,7 +42,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WRO-s3-UMB">
-                                <rect key="frame" x="34" y="249" width="240" height="128"/>
+                                <rect key="frame" x="34" y="249" width="240" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -108,15 +108,6 @@
                                 <state key="normal" title="Enter Info About Your Parts"/>
                                 <connections>
                                     <segue destination="hbX-rR-PZA" kind="presentation" identifier="PersonalSegue" id="Xcw-p4-qfK"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9e-lb-YXy">
-                                <rect key="frame" x="61" y="580" width="249" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
-                                <state key="normal" title="Upload Images and Documents"/>
-                                <connections>
-                                    <segue destination="j6k-0V-6mm" kind="presentation" identifier="ImagesDocumentsSegue" id="Fgt-f6-JHX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1a-Bz-9cc">
@@ -192,11 +183,16 @@
                                     <action selector="SelectPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fWX-Mw-rfn"/>
                                 </connections>
                             </button>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ir-0t-36k" userLabel="Photo Check">
+                                <rect key="frame" x="266" y="457" width="25" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.60829074660000004" green="1" blue="0.90425925650000005" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="CompanyCheck" destination="eeF-uN-htw" id="wMW-SU-Zit"/>
+                        <outlet property="FileUploadCheck" destination="1Ir-0t-36k" id="Ere-Fq-ekH"/>
                         <outlet property="MyImageView" destination="tlZ-1T-qrp" id="28S-HJ-fJ2"/>
                         <outlet property="PartsCheck" destination="goH-Ro-Ior" id="WVK-kj-80o"/>
                         <outlet property="PersonalCheck" destination="zS4-iV-6Rx" id="NfE-ln-nHQ"/>

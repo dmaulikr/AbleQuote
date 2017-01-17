@@ -98,8 +98,6 @@ class PartsViewController: UIViewController,UIImagePickerControllerDelegate, UIN
         txtMaterialType.text! = gMaterialType
         txtPriorOperation.text! = gPriorOperation
         txtReason.text! = gReason
-        
-
     }
 
     override func didReceiveMemoryWarning() {

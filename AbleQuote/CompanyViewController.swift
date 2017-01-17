@@ -74,8 +74,8 @@ class CompanyViewController: UIViewController,UIImagePickerControllerDelegate, U
                             else {
                                 gCompanyName = txtCompanyName.text!
                                 gAddress = txtAddress.text!
-                                gState = txtZip.text!
-                                gZip = txtState.text!
+                                gState = txtState.text!
+                                gZip = txtZip.text!
                                 gCountry = txtCountry.text!
                                 gPhone = txtPhone.text!
                                 
