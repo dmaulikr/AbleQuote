@@ -16,7 +16,6 @@
 		3E8100061E23EDCE0020A03F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E8100051E23EDCE0020A03F /* MessageUI.framework */; };
 		3E97AE101E22904E00417660 /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E97AE0F1E22904E00417660 /* PersonalViewController.swift */; };
 		3E97AE121E22922C00417660 /* PartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E97AE111E22922C00417660 /* PartsViewController.swift */; };
-		3E97AE141E22936400417660 /* ImagesDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E97AE131E22936400417660 /* ImagesDocumentsViewController.swift */; };
 		3EEC39021E227E1000CF741C /* CompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEC39011E227E1000CF741C /* CompanyViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +31,6 @@
 		3E8100051E23EDCE0020A03F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3E97AE0F1E22904E00417660 /* PersonalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalViewController.swift; sourceTree = "<group>"; };
 		3E97AE111E22922C00417660 /* PartsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartsViewController.swift; sourceTree = "<group>"; };
-		3E97AE131E22936400417660 /* ImagesDocumentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesDocumentsViewController.swift; sourceTree = "<group>"; };
 		3EAFFF091E267FD900D7279D /* AbleQuote.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AbleQuote.entitlements; sourceTree = "<group>"; };
 		3EEC39011E227E1000CF741C /* CompanyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,7 +75,6 @@
 				3EEC39011E227E1000CF741C /* CompanyViewController.swift */,
 				3E97AE0F1E22904E00417660 /* PersonalViewController.swift */,
 				3E97AE111E22922C00417660 /* PartsViewController.swift */,
-				3E97AE131E22936400417660 /* ImagesDocumentsViewController.swift */,
 				3E2EA4311E1EFA2B0023C3F4 /* Assets.xcassets */,
 				3E2EA4331E1EFA2B0023C3F4 /* LaunchScreen.storyboard */,
 				3E2EA4361E1EFA2B0023C3F4 /* Info.plist */,
@@ -183,7 +180,6 @@
 				3E97AE121E22922C00417660 /* PartsViewController.swift in Sources */,
 				3E59A19D1E27E8D20054EE05 /* DocumentViewController.swift in Sources */,
 				3EEC39021E227E1000CF741C /* CompanyViewController.swift in Sources */,
-				3E97AE141E22936400417660 /* ImagesDocumentsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
