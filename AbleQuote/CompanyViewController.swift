@@ -78,6 +78,8 @@ class CompanyViewController: UIViewController,UIImagePickerControllerDelegate, U
                                 gZip = txtZip.text!
                                 gCountry = txtCountry.text!
                                 gPhone = txtPhone.text!
+                                //gWeArePicker = pickerView(WeArePicker, didSelectRow: <#T##Int#>, inComponent: <#T##Int#>), inComponent: <#T##Int#>, animated: <#T##Bool#>
+                                
                                 
                                 gCompanyValid = true
                                 
@@ -104,7 +106,8 @@ class CompanyViewController: UIViewController,UIImagePickerControllerDelegate, U
         
         self.WeArePicker.delegate = self
         self.WeArePicker.dataSource = self
-        self.WeArePicker.selectRow(gWeArePickerIndex, inComponent: 0, animated: true)
+        
+        //self.WeArePicker.selectRow(gWeArePickerIndex, inComponent: 0, animated: true)
         
         txtAddress.layer.borderColor = UIColor.blackColor().CGColor //set your color here
         txtAddress.layer.borderWidth = 1.0
@@ -115,6 +118,7 @@ class CompanyViewController: UIViewController,UIImagePickerControllerDelegate, U
         gZip = QuoteDefaults.stringForKey("dZip")!
         gCountry = QuoteDefaults.stringForKey("dCountry")!
         gPhone = QuoteDefaults.stringForKey("dPhone")!
+        gWeArePickerIndex = QuoteDefaults.integerForKey("dWeArePickerIndex")
         
         txtCompanyName.text! = gCompanyName
         txtAddress.text! = gAddress
@@ -122,6 +126,8 @@ class CompanyViewController: UIViewController,UIImagePickerControllerDelegate, U
         txtZip.text! = gZip
         txtCountry.text! = gCountry
         txtPhone.text! = gPhone
+        WeArePicker.selectRow(gWeArePickerIndex, inComponent: gWeArePickerIndex, animated: true)
+        //self.WeArePicker.selectRow(gWeArePickerIndex, inComponent: gWeArePickerIndex, animated: true)
 
     }
 
