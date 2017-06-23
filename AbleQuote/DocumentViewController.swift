@@ -4,7 +4,7 @@
 //
 //  Created by James Scoltock on 1/12/17.
 //  Copyright © 2017 Able. All rights reserved.
-// test commit
+//
 
 import UIKit
 import MobileCoreServices
