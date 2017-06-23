@@ -13,49 +13,49 @@ class Document_ViewController: UIViewController, UIDocumentMenuDelegate, UIDocum
     
     @IBOutlet weak var Filename: UITextView!
     
-    @IBAction func Done(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func Done(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Filename.layer.borderColor = UIColor.blackColor().CGColor
+        Filename.layer.borderColor = UIColor.black.cgColor
         Filename.layer.borderWidth = 1.0
 
     }
    
-    @IBAction func handleImportMenuPressed(sender: AnyObject) {
-        let importMenu = UIDocumentMenuViewController(documentTypes: [kUTTypeText as NSString as String], inMode: .Import)
+    @IBAction func handleImportMenuPressed(_ sender: AnyObject) {
+        let importMenu = UIDocumentMenuViewController(documentTypes: [kUTTypeText as NSString as String], in: .import)
      
         importMenu.delegate = self
-        importMenu.addOptionWithTitle("Create New Document", image: nil, order: .First, handler: { print("New Doc Requested") })
-        presentViewController(importMenu, animated: false, completion: nil)
+        importMenu.addOption(withTitle: "Create New Document", image: nil, order: .first, handler: { print("New Doc Requested") })
+        present(importMenu, animated: false, completion: nil)
     }
     
-    @IBAction func handleImportPickerPressed(sender: AnyObject) {
-        let documentPicker = UIDocumentPickerViewController(documentTypes: [kUTTypeText as NSString as String, kUTTypeContent as NSString as String], inMode: .Import)
+    @IBAction func handleImportPickerPressed(_ sender: AnyObject) {
+        let documentPicker = UIDocumentPickerViewController(documentTypes: [kUTTypeText as NSString as String, kUTTypeContent as NSString as String], in: .import)
         
         documentPicker.delegate = self
-        presentViewController(documentPicker, animated: false, completion: nil)
+        present(documentPicker, animated: false, completion: nil)
     }
     
     //next func not used
-    func documentMenu(documentMenu: UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
+    func documentMenu(_ documentMenu: UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
         documentPicker.delegate = self
-        presentViewController(documentPicker, animated: true, completion: nil)
+        present(documentPicker, animated: true, completion: nil)
     }
 
-    func documentPicker(controller: UIDocumentPickerViewController, didPickDocumentAtURL url: NSURL) {
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
         print(url)
       
-        let absString: String = url.absoluteString!
+        let absString: String = url.absoluteString
         print(absString)
         let relString: String = url.relativeString
         print(relString)
-        let relPath: String = url.relativePath!
+        let relPath: String = url.relativePath
         print(relPath)
-        let Path: String = url.path!
+        let Path: String = url.path
         print(Path)
       
         gFilename = (Path as NSString).lastPathComponent

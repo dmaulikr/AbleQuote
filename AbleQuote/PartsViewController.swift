@@ -19,44 +19,44 @@ class PartsViewController: UIViewController,UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var txtReason: UITextView!
     @IBOutlet weak var InterestedInPicker: UIPickerView!
     
-    @IBAction func CancelParts(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func CancelParts(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func DoneParts(sender: AnyObject){
+    @IBAction func DoneParts(_ sender: AnyObject){
         if txtLotSizes.text! == "" {
-            let alertController = UIAlertController(title: "Missing Lot Sizes", message: "Lot sizes is a required field", preferredStyle: .Alert)
-            let defaultAction = UIAlertAction(title: "Close Alert", style: .Default, handler: nil)
+            let alertController = UIAlertController(title: "Missing Lot Sizes", message: "Lot sizes is a required field", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "Close Alert", style: .default, handler: nil)
             alertController.addAction(defaultAction)
-            presentViewController(alertController, animated: true, completion: nil)
+            present(alertController, animated: true, completion: nil)
         }
         else {
             if txtAnnualVolume.text! == "" {
-                let alertController = UIAlertController(title: "Missing Annual Volume", message: "Annual Volume is a required field", preferredStyle: .Alert)
-                let defaultAction = UIAlertAction(title: "Close Alert", style: .Default, handler: nil)
+                let alertController = UIAlertController(title: "Missing Annual Volume", message: "Annual Volume is a required field", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "Close Alert", style: .default, handler: nil)
                 alertController.addAction(defaultAction)
-                presentViewController(alertController, animated: true, completion: nil)
+                present(alertController, animated: true, completion: nil)
             }
             else {
                 if txtMaterialType.text == "" {
-                    let alertController = UIAlertController(title: "Missing Material Type", message: "Material Type is a required field", preferredStyle: .Alert)
-                    let defaultAction = UIAlertAction(title: "Close Alert", style: .Default, handler: nil)
+                    let alertController = UIAlertController(title: "Missing Material Type", message: "Material Type is a required field", preferredStyle: .alert)
+                    let defaultAction = UIAlertAction(title: "Close Alert", style: .default, handler: nil)
                     alertController.addAction(defaultAction)
-                    presentViewController(alertController, animated: true, completion: nil)
+                    present(alertController, animated: true, completion: nil)
                 }
                 else {
                     if txtPriorOperation.text! == "" {
-                        let alertController = UIAlertController(title: "Missing Prior Operation", message: "Prior Operation is a required field", preferredStyle: .Alert)
-                        let defaultAction = UIAlertAction(title: "Close Alert", style: .Default, handler: nil)
+                        let alertController = UIAlertController(title: "Missing Prior Operation", message: "Prior Operation is a required field", preferredStyle: .alert)
+                        let defaultAction = UIAlertAction(title: "Close Alert", style: .default, handler: nil)
                         alertController.addAction(defaultAction)
-                        presentViewController(alertController, animated: true, completion: nil)
+                        present(alertController, animated: true, completion: nil)
                     }
                     else {
                         if txtReason.text == "" {
-                            let alertController = UIAlertController(title: "Missing Primary Reason", message: "Primary Reason is a required field", preferredStyle: .Alert)
-                            let defaultAction = UIAlertAction(title: "Close Alert", style: .Default, handler: nil)
+                            let alertController = UIAlertController(title: "Missing Primary Reason", message: "Primary Reason is a required field", preferredStyle: .alert)
+                            let defaultAction = UIAlertAction(title: "Close Alert", style: .default, handler: nil)
                             alertController.addAction(defaultAction)
-                            presentViewController(alertController, animated: true, completion: nil)
+                            present(alertController, animated: true, completion: nil)
                         }
                         else {
                             gLotSizes = txtLotSizes.text!
@@ -67,7 +67,7 @@ class PartsViewController: UIViewController,UIImagePickerControllerDelegate, UIN
                             
                             gPartsValid = true
 
-                            dismissViewControllerAnimated(true, completion: nil)
+                            dismiss(animated: true, completion: nil)
                         }
                     }
                 }
@@ -75,10 +75,10 @@ class PartsViewController: UIViewController,UIImagePickerControllerDelegate, UIN
         }
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         //myImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 
     override func viewDidLoad() {
@@ -90,7 +90,7 @@ class PartsViewController: UIViewController,UIImagePickerControllerDelegate, UIN
         self.InterestedInPicker.dataSource = self
         self.InterestedInPicker.selectRow(gInterestedInPickerIndex, inComponent: 0, animated: true)
         
-        txtReason.layer.borderColor = UIColor.blackColor().CGColor //set your color here
+        txtReason.layer.borderColor = UIColor.black.cgColor //set your color here
         txtReason.layer.borderWidth = 1.0
         
         txtLotSizes.text! = gLotSizes
@@ -105,19 +105,19 @@ class PartsViewController: UIViewController,UIImagePickerControllerDelegate, UIN
         // Dispose of any resources that can be recreated.
     }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return InterestedIn.count
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return InterestedIn[row]  //pickerDataSource[component][row]
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         gInterestedInPicker = (InterestedIn[row])
         gInterestedInPickerIndex = row
     }

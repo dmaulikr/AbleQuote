@@ -16,38 +16,38 @@ class PersonalViewController: UIViewController {
     @IBOutlet weak var txtEmail: UITextField!
     
     
-    @IBAction func Cancel(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func Cancel(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
     }
 
-    @IBAction func DonePersonal(sender: AnyObject) {
+    @IBAction func DonePersonal(_ sender: AnyObject) {
         
         if txtFirstName.text! == "" {
-            let alertController = UIAlertController(title: "Missing First Name", message: "First Name is a required field", preferredStyle: .Alert)
-            let defaultAction = UIAlertAction(title: "Close Alert", style: .Default, handler: nil)
+            let alertController = UIAlertController(title: "Missing First Name", message: "First Name is a required field", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "Close Alert", style: .default, handler: nil)
             alertController.addAction(defaultAction)
-            presentViewController(alertController, animated: true, completion: nil)
+            present(alertController, animated: true, completion: nil)
         }
         else {
             if txtLastName.text! == "" {
-                let alertController = UIAlertController(title: "Missing Last Name", message: "Last Name is a required field", preferredStyle: .Alert)
-                let defaultAction = UIAlertAction(title: "Close Alert", style: .Default, handler: nil)
+                let alertController = UIAlertController(title: "Missing Last Name", message: "Last Name is a required field", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "Close Alert", style: .default, handler: nil)
                 alertController.addAction(defaultAction)
-                presentViewController(alertController, animated: true, completion: nil)
+                present(alertController, animated: true, completion: nil)
             }
             else {
                 if txtJobTitle.text == "" {
-                    let alertController = UIAlertController(title: "Missing Job Title", message: "Job Title is a required field", preferredStyle: .Alert)
-                    let defaultAction = UIAlertAction(title: "Close Alert", style: .Default, handler: nil)
+                    let alertController = UIAlertController(title: "Missing Job Title", message: "Job Title is a required field", preferredStyle: .alert)
+                    let defaultAction = UIAlertAction(title: "Close Alert", style: .default, handler: nil)
                     alertController.addAction(defaultAction)
-                    presentViewController(alertController, animated: true, completion: nil)
+                    present(alertController, animated: true, completion: nil)
                 }
                 else {
                     if txtEmail.text! == "" {
-                        let alertController = UIAlertController(title: "Missing Email", message: "Email is a required field", preferredStyle: .Alert)
-                        let defaultAction = UIAlertAction(title: "Close Alert", style: .Default, handler: nil)
+                        let alertController = UIAlertController(title: "Missing Email", message: "Email is a required field", preferredStyle: .alert)
+                        let defaultAction = UIAlertAction(title: "Close Alert", style: .default, handler: nil)
                         alertController.addAction(defaultAction)
-                        presentViewController(alertController, animated: true, completion: nil)
+                        present(alertController, animated: true, completion: nil)
                     }
                     else {
                        if isValidEmail(txtEmail.text!) || txtEmail.text == "" {
@@ -58,21 +58,21 @@ class PersonalViewController: UIViewController {
                         
                             gPersonalValid = true
                         
-                            QuoteDefaults.setObject(gFirstName, forKey: "dFirstName")
-                            QuoteDefaults.setObject(gLastName, forKey: "dLastName")
-                            QuoteDefaults.setObject(gJobTitle, forKey: "dJobTitle")
-                            QuoteDefaults.setObject(gEmail, forKey: "dEmail")
+                            QuoteDefaults.set(gFirstName, forKey: "dFirstName")
+                            QuoteDefaults.set(gLastName, forKey: "dLastName")
+                            QuoteDefaults.set(gJobTitle, forKey: "dJobTitle")
+                            QuoteDefaults.set(gEmail, forKey: "dEmail")
                         
-                            dismissViewControllerAnimated(true, completion: nil)
+                            dismiss(animated: true, completion: nil)
                         }
                         else
                         {
                             gPersonalValid = false
                             let alertController = UIAlertController(title: "Invalid Email", message:
-                                "Email address is not valid. Try again!", preferredStyle: UIAlertControllerStyle.Alert)
-                            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+                                "Email address is not valid. Try again!", preferredStyle: UIAlertControllerStyle.alert)
+                            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
                             
-                            self.presentViewController(alertController, animated: true, completion: nil)
+                            self.present(alertController, animated: true, completion: nil)
                         }
                     }
                 }
@@ -85,10 +85,10 @@ class PersonalViewController: UIViewController {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         
-        gFirstName = QuoteDefaults.stringForKey("dFirstName")!
-        gLastName = QuoteDefaults.stringForKey("dLastName")!
-        gJobTitle = QuoteDefaults.stringForKey("dJobTitle")!
-        gEmail = QuoteDefaults.stringForKey("dEmail")!
+        gFirstName = QuoteDefaults.string(forKey: "dFirstName")!
+        gLastName = QuoteDefaults.string(forKey: "dLastName")!
+        gJobTitle = QuoteDefaults.string(forKey: "dJobTitle")!
+        gEmail = QuoteDefaults.string(forKey: "dEmail")!
 
         txtFirstName.text! = gFirstName
         txtLastName.text! = gLastName
@@ -113,9 +113,9 @@ extension PersonalViewController {
     }
 }
 
-func isValidEmail(testStr:String) -> Bool {
+func isValidEmail(_ testStr:String) -> Bool {
     let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-    let range = testStr.rangeOfString(emailRegEx, options:.RegularExpressionSearch)
+    let range = testStr.range(of: emailRegEx, options:.regularExpression)
     let result = range != nil ? true : false
     return result
 }
